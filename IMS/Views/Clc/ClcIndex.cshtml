@@ -1,0 +1,24 @@
+﻿<h2>Simple Calculator</h2>
+<div class="row">
+    @using (Html.BeginForm("Calulator", "Clc", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label form="No1">No 1</label>
+            <input type="text" class="form-control" id="No1" name="No1" value="@Model.No1">
+        </div>
+        <div class="form-group">
+            <label form="No2">No2</label>
+            <input type="text" class="form-control" id="No2" name="No2" value="@Model.No2">
+        </div>
+
+        <div class="form-group">
+            <label form="Total">Total</label>
+            <input type="text" class="form-control" id="Total" name="Total" value="@Model.Total">
+        </div>
+        <button type="submit" class="btn-info" id="add" value="add" name="Calculate">+</button>
+        <button type="submit" class="btn-info" id="min" value="min" name="Calculate">-</button>
+        <button type="submit" class="btn-info" id="sub" value="sub" name="Calculate">*</button>
+        <button type="submit" class="btn-info" id="divv" value="divv" name="Calculate">/</button>
+
+    }
+</div>

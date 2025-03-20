@@ -1,0 +1,27 @@
+﻿<div >
+    <a href="/Purchases/AddPurchase">Add Purchase</a>
+    <table class="can">
+
+        <tr>
+            <th>Id</th>
+            <th>Supplier Name</th>
+            <th>Product Name</th>
+            <th>Number Received</th>
+            <th>Purchase date</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Supplier_Name</td>
+                <td>@item.ProductName</td>
+                <td>@item.Number_Received</td>
+                <td>@item.Purchase_date</td>
+                <td>@Html.ActionLink("Detail","Detail","Purchases",new{item.Id})</td>
+                <td>@Html.ActionLink("Delete","Delete","Purchases",new{item.Id})</td>
+                <td>@Html.ActionLink("Edit","Edit","Purchases",new{item.Id})</td>
+            </tr>
+        }
+    </table>
+</div>

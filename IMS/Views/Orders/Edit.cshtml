@@ -1,0 +1,17 @@
+﻿<form action="/Orders/Update">
+    <div style="display:none"><label>Id</label><input name="Id" type="text" value="@Model.Id" /></div>
+    <div><label>Title</label><input name="Title" type="text" value="@Model.Title"  /></div>
+    <div><label>First</label><input name="First" type="text" value="@Model.First" /></div>
+    <div><label>Middle</label><input name="Middle" type="text" value="@Model.Middle"  /></div>
+    <div><label>Last</label><input name="Last" type="text" value="@Model.Last"  /></div>
+    <div><label>ProductName</label>
+        @Html.DropDownList("ProductId",(List<SelectListItem>)ViewBag.ProductBag)
+    </div>
+    <div>
+        <label>Supplier_Name</label>
+        @Html.DropDownList("SuppliersId",(List<SelectListItem>)ViewBag.SuppliersBag)
+     </div>
+    <div><label>NumberShipped</label><input name="NumberShipped" type="text" value="@Model.NumberShipped"   /></div>
+    <div><label>OrderDate</label><input name="OrderDate" type="date" value="@Model.OrderDate"  /></div>
+    <div><input type="submit" value="Update"/></div>
+</form>

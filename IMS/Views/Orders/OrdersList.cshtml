@@ -1,0 +1,37 @@
+﻿<div>
+    <a href="/Orders/AddOrders">Add Orders</a>
+    <table class="can">
+
+        <tr>
+            <th>Id</th>
+            <th>Title</th> 
+            <th>First</th>
+            <th>Middle</th>
+            <th>Last</th>
+            <th>MobileNo</th>
+            <th>ProductName</th>
+            <th>SupplierName</th>
+            <th>NumberShipped</th>
+            <th>Order Date</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                 <td>@item.Title</td> 
+                <td>@item.First</td>
+                <td>@item.Middle</td>
+                <td>@item.Last</td>
+                <td>@item.MobileNo</td>
+                <td>@item.ProductName</td>
+                <td>@item.Supplier_Name</td>
+                <td>@item.NumberShipped</td>
+                <td>@item.OrderDate</td>
+                <td>@Html.ActionLink("Detail","Detail","Orders",new{item.Id})</td>
+                <td>@Html.ActionLink("Delete","Delete","Orders",new{item.Id})</td>
+                <td>@Html.ActionLink("Edit","Edit","Orders",new{item.Id})</td>
+            </tr>
+        }
+    </table>
+</div>

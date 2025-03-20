@@ -1,0 +1,16 @@
+﻿<form action="/Purchases/SavePurchases">
+    <div>
+        <label>Supplier_Name</label>
+        @Html.DropDownList("SupplierId", (List<SelectListItem>) ViewBag.SupplierBag)
+    </div>
+    <div>
+        <label>ProductName</label>
+        @Html.DropDownList("ProductId",(List<SelectListItem>)ViewBag.ProductBag)
+        </div>
+    <div><label>Number_Received</label><input name="Number_Received" type="text" /></div>
+    <div>
+        <label>Purchase_date</label>
+        <input type="date" name="Purchase_date" />
+    </div>
+    <div><input type="submit" value="SavePurchases" /></div>
+</form>

@@ -1,0 +1,69 @@
+﻿<div class="table">
+    <a href="/Orders/AddOrders">Add data</a>
+
+    <div class="card">
+        <form class="form-control" action="/Orders/OrderReport" >
+            <div>
+                <label>Supplier_Name</label>
+                @* @Html.DropDownList("SuppliersId", (List<SelectListItem>) ViewBag.SupplierBag, new { @class = "form-control", onchange = "this.form.submit();" }) *@
+                @Html.DropDownList("SuppliersId", (List<SelectListItem>) ViewBag.SupplierBag)
+
+                <label>ProductName</label>
+                @Html.DropDownList("ProductId",(List<SelectListItem>)ViewBag.ProductBag)
+
+                <label>OrderDate</label>
+                @Html.DropDownList("Month",(List<SelectListItem>)ViewBag.MonthList)
+
+                <label>TextSearch</label>
+                @Html.TextBox("TextSearch")
+            </div>
+            <div>
+                <input type="submit" value="Search" />
+            </div>
+        </form>
+    </div>
+    <table class="container" width="100%" style="margin-top:20px;">
+
+        <tr>
+            <th>Id</th>
+            <th>Supplier_Name</th>
+            <th>Product Name</th>
+            <th>MobileNo</th>            
+            <th>Orderdate</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>NumberShipped</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Supplier_Name</td>
+                <td>@item.ProductName</td>
+                <td>@item.MobileNo</td>
+                <td>@item.OrderDate</td>
+                <td>@item.First
+                <td>@item.Last</td>
+                <td>@item.NumberShipped</td>
+            </tr>
+        }
+    </table>
+     <div class="card">
+
+        <ul class="pagination">
+            @{
+                int totalpages = ViewBag.TotalPages;
+                for (int i = 0; i <= totalpages; i++)
+                {
+                    <li>
+                        @Html.ActionLink((i+1).ToString(),"OrderReport",new {SuppliersId=0,ProductId=0, Month=0,TextSearch="", PageNumber=i })
+
+                     </li>  
+                        
+                }
+            }
+        </ul>
+        
+    </div> 
+
+</div>

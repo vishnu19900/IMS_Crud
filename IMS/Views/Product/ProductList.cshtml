@@ -1,0 +1,37 @@
+﻿<a href="/Product/AddProduct">Add Product</a>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>ProductName </th>
+        <th>PartNumber</th>
+        <th>ProductLabel</th>
+        <th>StartingInventory</th>
+        <th>InvertoryRecevied</th>
+        <th>Invertoryshipped</th>
+        <th>InventoryOnHand</th>
+        <th>MinimumRequired</th>
+        
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+
+            <td>@item.ProductName </td>
+            <td>@item.PartNumber</td>
+
+            <td>@item.ProductLabel</td>
+
+            <td>@item.StartingInventory</td>
+            <td>@item.InventoryReceived</td>
+            <td>@item.Inventoryshipped</td>
+            <td>@item.InventoryOnHand</td>
+            <td>@item.MinimumRequired</td>
+            <td>@Html.ActionLink("detail","detail","Product",new{item.Id})</td>
+            <td>@Html.ActionLink("delete","delete","Product",new{item.Id})</td>
+            <td>@Html.ActionLink("Edit","Edit","Product",new{item.Id})</td>
+
+        </tr>
+
+    }
+</table>

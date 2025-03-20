@@ -1,0 +1,57 @@
+﻿<div class="table">
+
+    <div class="card">
+        <form class="form-control" action="/Purchases/PurchaseReport">
+            <div>
+                <label>Supplier_Name</label>
+                @Html.DropDownList("SupplierId", (List<SelectListItem>) ViewBag.SupplierBag, new { @class = "form-control", onchange = "this.form.submit();" })
+
+                <label>ProductName</label>
+                @Html.DropDownList("ProductId",(List<SelectListItem>)ViewBag.ProductBag, new { @class = "form-control", onchange = "this.form.submit();" })
+
+                <label>Month List</label>
+                @Html.DropDownList("MonthValue",(List<SelectListItem>)ViewBag.MonthList, new { @class = "form-control", onchange = "this.form.submit();" })
+            
+                <label>Text</label>
+                @Html.TextBox("Text")</div>
+            <div>
+                <input type="submit" value="Search" />
+            </div>
+        </form>
+    </div>
+
+    <table class="container" width="100%" style="margin-top:20px;">
+
+        <tr>
+            <th>Id</th>
+            <th>Supplier_Name</th>
+            <th>Product Name</th>
+            <th>Number Received</th>
+            <th>Purchase date</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Supplier_Name</td>
+                <td>@item.ProductName</td>
+                <td>@item.Number_Received</td>
+                <td>@item.Purchase_date</td>
+            </tr>
+        }
+    </table>
+    <div class="card">
+        <ul class="pagination">
+            @{
+                int totalpages = ViewBag.TotalPages;
+                for (int i = 1; i <=totalpages; i++)
+                {
+                <li>
+                        @Html.ActionLink(i.ToString(),"PurchaseReport",new {SuppliersId=0,ProductId=0, Month=0, PageNumber=i });
+                </li>    
+                }
+            }
+        </ul>
+    </div>
+</div>

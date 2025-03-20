@@ -1,0 +1,33 @@
+﻿<div class="table">
+
+    <div class="card">
+        <form class="form-control" action="/Orders/OrderReport">
+            <div>
+                <label>Supplier_Name</label>
+                @* @Html.DropDownList("SuppliersId", (List<SelectListItem>) ViewBag.SupplierBag, new { @class = "form-control", onchange = "this.form.submit();" }) *@
+                @Html.DropDownList("SuppliersId", (List<SelectListItem>) ViewBag.SupplierBag)
+
+               
+                <input type="submit" value="Search" />
+            </div>
+        </form>
+    </div>
+    <table class="container" width="100%" style="margin-top:20px;">
+
+        <tr>
+            <th>Id</th>
+            <th>Supplier_Name</th>
+  
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Supplier_Name</td>
+           
+            </tr>
+        }
+    </table>
+   
+
+</div>

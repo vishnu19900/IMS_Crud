@@ -1,0 +1,8 @@
+﻿<form action="/Purchases/Update">
+    <div><label>Id</label><input name="Id" type="text" value="@Model.Id"/></div>
+    <div><label>SupplierId</label>@Html.DropDownList("SupplierId",(List<SelectListItem>)ViewBag.SupplierBag)</div>
+    <div><label>ProductId</label>@Html.DropDownList("ProductId",(List<SelectListItem>)ViewBag.ProductBag)</div>
+    <div><label>Number_Received</label><input name="Number_Received" type="text"value="@Model.Number_Received" /></div>
+    <div><label>Purchase_date</label><input name="Purchase_date" type="text" value="@Model.Purchase_date" /></div>
+    <div><input type="submit" value="Update" /></div>
+</form>

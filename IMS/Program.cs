@@ -1,7 +1,14 @@
+using IMS.data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+string strConnection = "server=DESKTOP-L1E5L8C; database=IMS;Trusted_Connection=True;";
+builder.Services.AddDbContext<IMSDb>(item => item.UseSqlServer(strConnection));
+
 
 var app = builder.Build();
 
@@ -22,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Orders}/{action=OrderView}/{id?}");
 
 app.Run();

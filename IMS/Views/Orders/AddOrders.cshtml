@@ -1,0 +1,26 @@
+﻿<form action="/Orders/SaveOrders">
+    
+    <div>
+        <div><label>Title</label><input name="Title" type="text" /></div>
+       @* <select >
+           
+           <option value="Mr">Mr</option>
+           <option value="Mrs">Mrs</option>
+           <option value="Miss">Miss</option>            
+       </select> *@
+    </div>        
+    <div><label>First</label><input name="First" type="text" /></div>
+    <div><label>Middle</label><input name="Middle" type="text" /></div>
+    <div><label>Last</label><input name="Last" type="text" /></div>
+    <div><label>MobileNo</label><input name="MobileNo"type="text"/></div>
+    <div>
+        <label>ProductName</label>
+        @Html.DropDownList("ProductId",(List<SelectListItem>)ViewBag.ProductBag)
+    </div>
+    <div><label>Supplier_Name</label>
+        @Html.DropDownList("SuppliersId",(List<SelectListItem>)ViewBag.SuppliersBag)
+    </div>
+    <div><label>NumberShipped</label><input name="NumberShipped" type="text" /></div>
+    <div><label>OrderDate</label><input name="OrderDate" type="date" /></div>
+    <div><input type="submit" value="SaveOrders"/></div>
+</form>

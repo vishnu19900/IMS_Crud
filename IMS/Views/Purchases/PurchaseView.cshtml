@@ -1,0 +1,61 @@
+﻿<div class="table">
+    <div class="card">
+        <form class="form-control" action="/Purchases/PurchaseView">
+        
+            <div>
+                <label>Supplier_Name</label>
+        
+                @Html.DropDownList("SupplierId", (List<SelectListItem>) ViewBag.SupplierBag)
+
+                <label>ProductName</label>
+                @Html.DropDownList("ProductId",(List<SelectListItem>)ViewBag.ProductBag)
+
+                <label>TextSearch</label>
+                @Html.TextBox("TextSearch")
+            
+               
+            </div>
+           <div> 
+                <input type="submit" value="Search" />
+            </div>
+    </form>    
+    </div>
+
+    <table class="container" width="100%" style="margin-top:20px;">
+
+        <tr>
+            <th>Id</th>
+            <th>Supplier Name</th>
+            <th>Product Name</th>
+            <th>Number Received</th>
+            <th>Purchase date</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Supplier_Name</td>
+                <td>@item.ProductName</td>
+                <td>@item.Number_Received</td>
+                <td>@item.Purchase_date</td>
+            </tr>
+        }
+    </table>
+    <div class="card">
+
+        <ul class="pagination">
+            @{
+                int totalpages = ViewBag.TotalPages;
+                for (int i = 0; i <= totalpages; i++)
+                {
+                    <li>
+                        @Html.ActionLink((i+1).ToString(),"PurchaseView",new {SuppliersId=0,ProductId=0, Month=0,TextSearch="", PageNumber=i })
+
+                    </li>
+                }
+            }
+        </ul>
+
+    </div>
+</div>

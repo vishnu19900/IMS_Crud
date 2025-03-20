@@ -1,0 +1,19 @@
+﻿
+
+<ul>
+    
+ @foreach (var i in (string[])ViewData["furitList"])
+    {
+        <li>@i</li>
+
+    }
+
+    
+</ul>
+<h1><ul>
+
+    @foreach (string item in (string[])ViewData["vegetable"])
+    {
+        <li>@item</li>
+    }
+</ul></h1>
